@@ -15,7 +15,7 @@ export default function Playbook() {
         <section className="py-12 md:py-20 bg-muted/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <Badge className="bg-secondary text-secondary-foreground mb-4">Coming Soon</Badge>
+              <Badge className="bg-secondary text-secondary-foreground mb-4">Advanced Player Tracking</Badge>
               <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-foreground mb-6">
                 Your Personal Playbook
               </h1>
@@ -97,6 +97,22 @@ export default function Playbook() {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </section>
+
+        {/* Call-to-Action Section */}
+        <section className="py-12 md:py-20 bg-secondary/10">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-6">Ready to Track Your Progress?</h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Create your account to start tracking sessions, monitoring skill development, and unlocking personalized insights from your Tennis 919 coach.
+            </p>
+            <a 
+              href="/api/login"
+              className="inline-block bg-secondary text-secondary-foreground px-8 py-3 font-semibold hover:bg-secondary/90 transition-colors"
+            >
+              Log In or Sign Up
+            </a>
           </div>
         </section>
 
