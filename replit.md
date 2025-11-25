@@ -1,121 +1,96 @@
-# Tennis 919 Website
+# Tennis 919 Website Project
 
-## Overview
+## Project Overview
+Tennis 919 is Durham's inclusive tennis organization website featuring winter-themed apparel showcase, Calendly-integrated booking, professional tennis analytics playbook system, and fundraising product integration.
 
-Tennis 919 is a web application for an inclusive tennis coaching organization based in Durham, NC. The platform showcases tennis lessons (private, duos, group clinics), merchandise/apparel, and provides information about the organization founded by Matthew Frazer. The site emphasizes accessibility, community building, and LGBTQ+ inclusivity.
+## Tech Stack
+- **Frontend**: React + TypeScript, Wouter (routing), TanStack Query, Tailwind CSS
+- **Backend**: Express.js with TypeScript
+- **Styling**: Shadcn UI components, retro-modern design with teal/navy winter palette
+- **Deployment**: Prepared for Squarespace export with static HTML strategy
 
-The application is built as a single-page React application with client-side routing and can be deployed to static hosting or integrated into platforms like Squarespace.
+## Recent Changes (Session Nov 25, 2025)
 
-## User Preferences
+### Emoji Replacement - Design System Compliance
+✅ **Shop.tsx**: Replaced icon emoji rendering with Lucide icons
+- Lines 305-346: Converted manufacturer icons from emoji strings to proper Icon components
+- Added dynamic icon rendering with styled badge backgrounds
 
-Preferred communication style: Simple, everyday language.
+✅ **Playbook.tsx**: Replaced all emoji with Lucide icons
+- Stats Grid (Lines 40-59): Replaced 📊🎾🏆⭐ with BarChart2, Target, Trophy, Star
+- Skill Matrix (Lines 71-99): Replaced 🚀💪🔄⚡👟 with Rocket, Dumbbell, Repeat, Zap, Footprints
+- All icons now use bg-primary/10 circular backgrounds with proper sizing
 
-## System Architecture
+### Link Corrections
+✅ **ServicesGrid.tsx**: Fixed Duos Coaching Calendly link
+- Changed from `calendly.com/tennis919/duos-lesson` to `calendly.com/tennis919/duos` (line 27)
+- Ensures consistency with Lessons.tsx routing
 
-### Frontend Architecture
+### Verified Links & Functionality
+✅ **Calendly Integration**: All routes properly configured
+- General: calendly.com/tennis919
+- Private lessons: calendly.com/tennis919/privates
+- Duos: calendly.com/tennis919/duos
+- Beginner clinic: calendly.com/tennis919/beginner-clinic
+- Intermediate: calendly.com/tennis919/intermediate
 
-**Framework**: React 18+ with TypeScript, built using Vite as the build tool and bundler.
+✅ **External Links**: 
+- Email: coach.tennis919@gmail.com (mailto)
+- Phone: 919-667-6994 (tel)
+- Manufacturing partners: Amazon Merch, Printful, Bonfire, CustomInk, Teespring
 
-**Routing**: Client-side routing via Wouter library for lightweight SPA navigation. Routes include:
-- `/` - Home page with hero, mission, services, testimonials
-- `/lessons` - Detailed lesson offerings and pricing
-- `/shop` - Merchandise and apparel catalog
-- `/about` - Organization and founder information
-- `/playbook` - Future player performance tracking feature (coming soon)
+✅ **No Emoji**: Comprehensive audit confirmed zero emoji in codebase - all replaced with Lucide icons
 
-**UI Framework**: Radix UI primitives for accessible component primitives, styled with Tailwind CSS using a custom design system based on shadcn/ui component library ("new-york" style variant).
+## Page Structure Standardization
+All pages follow consistent pattern:
+- Wrapper: `flex flex-col min-h-screen bg-background`
+- Sections: `py-12 md:py-20`
+- Containers: `max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`
 
-**Design System**: 
-- Custom color palette inspired by tennis/outdoor aesthetics (forest green primary, warm coral secondary, terracotta accent)
-- Typography: Inter for body text, Poppins for headings
-- Responsive grid layouts with mobile-first approach
-- Consistent spacing using Tailwind's spacing scale
-- Component variants using class-variance-authority
+## Pages Implemented
+1. **Home** - Hero, Services, Winter Collection, Newsletter, Testimonials, Mission
+2. **Lessons** - Lesson cards (Privates, Duos, Beginner, Intermediate) with Calendly CTAs
+3. **Shop** - Winter apparel showcase, fundraising products, manufacturing partners
+4. **About** - Founder story, community showcase, core values
+5. **Playbook** - Performance dashboard, skill progression, feature cards
 
-**State Management**: React Query (@tanstack/react-query) for server state management and API interactions. Currently using in-memory storage on backend with hooks prepared for future API integration.
+## Component Inventory
+- **Reusable**: Navigation, Footer, Hero, ServicesGrid, ProductCard, WinterCollection
+- **Dashboard**: Mission, Testimonials, Newsletter
+- **Shadcn UI**: Full suite (50+ components) from ui/ folder
 
-**Form Handling**: React Hook Form with Zod validation (@hookform/resolvers) for type-safe form validation.
+## Design Guidelines
+- **Color Palette**: Teal (#0d9488) / Navy (#1e3a8a) with cream/white accents
+- **Typography**: Custom heading font + readable sans-serif
+- **Icons**: Lucide React only (no emoji)
+- **Spacing**: Consistent 12-20px section padding
+- **Hover States**: hover-elevate + active-elevate-2 utilities
 
-### Backend Architecture
+## Deployment Readiness
+✅ Responsive mobile design verified across all pages
+✅ All navigation links tested and functional
+✅ Calendly booking integration confirmed
+✅ Static HTML export ready for Squarespace
+✅ No console errors or styling issues
 
-**Server Framework**: Express.js with TypeScript running on Node.js.
+## Next Steps
+- User can publish via Replit deploy button
+- Site will be live on replit.app domain
+- Can be connected to custom domain
+- Squarespace export available via SQUARESPACE_DEPLOYMENT.md
 
-**Development vs Production**:
-- Development: Vite dev server with HMR middleware integrated into Express
-- Production: Static file serving from `dist/public` directory
+## Contact Info
+- **Email**: coach.tennis919@gmail.com
+- **Phone**: 919-667-6994
+- **Location**: Rock Quarry Park, Durham, NC
+- **Calendly**: calendly.com/tennis919
 
-**Storage Layer**: Currently implements in-memory storage (`MemStorage` class) with interface (`IStorage`) designed for future database migration. The interface includes user CRUD operations with unique ID generation using crypto.randomUUID().
-
-**Database Schema**: Drizzle ORM configured for PostgreSQL with schema defined in `shared/schema.ts`. Current schema includes users table with username/password fields. Database connection ready but storage implementation uses memory for now.
-
-**API Routes**: Minimal API surface registered in `server/routes.ts`. Designed to prefix all backend routes with `/api` for clear separation from frontend routes.
-
-**Request Logging**: Custom middleware logs all API requests with timestamps, paths, durations, and response status codes.
-
-### Design Patterns
-
-**Monorepo Structure**: Client and server code share TypeScript configurations and schema definitions via `shared/` directory. Path aliases configured for clean imports (`@/`, `@shared/`, `@assets/`).
-
-**Component Composition**: Reusable UI components in `client/src/components/` with shadcn/ui patterns. Feature-specific components (Hero, Mission, ServicesGrid, etc.) compose primitive UI components.
-
-**Type Safety**: End-to-end TypeScript with shared schema types between client and server. Zod schemas for runtime validation paired with TypeScript types via Drizzle ORM's type inference.
-
-**Separation of Concerns**: Clear boundaries between:
-- UI components (presentation)
-- Page components (composition)
-- API client utilities (data fetching)
-- Server routes (business logic)
-- Storage layer (data persistence)
-
-**Asset Management**: Static assets organized in `attached_assets/` with Vite alias resolution. Includes generated product images and branding assets.
-
-### Build & Deployment
-
-**Build Process**:
-1. Client: Vite bundles React app to `dist/public/` with code splitting and optimization
-2. Server: esbuild bundles Express server to `dist/index.js` with ESM format
-
-**Static Export**: Application designed for static deployment to platforms like Squarespace. Build creates self-contained `dist/public/` with HTML, CSS, JS, and assets.
-
-**Environment Configuration**: NODE_ENV-based configuration for development vs production. Drizzle requires DATABASE_URL environment variable when database features are enabled.
-
-## External Dependencies
-
-### Third-Party UI Libraries
-- **Radix UI**: Comprehensive set of unstyled, accessible component primitives (@radix-ui/react-*)
-- **shadcn/ui**: Component patterns and styling conventions
-- **Lucide React**: Icon library for consistent iconography
-- **Tailwind CSS**: Utility-first CSS framework with PostCSS processing
-
-### Data & Forms
-- **React Query**: Server state management, caching, and synchronization
-- **React Hook Form**: Performant form state management
-- **Zod**: Schema validation for forms and API contracts
-- **Drizzle ORM**: TypeScript ORM with PostgreSQL dialect
-
-### Database
-- **@neondatabase/serverless**: Neon serverless Postgres driver
-- **PostgreSQL**: Relational database (configured but not currently connected)
-- **Drizzle Kit**: Database migrations and schema management
-
-### External Services
-- **Calendly**: Appointment booking integration (https://calendly.com/tennis919)
-- **Google Fonts**: Web fonts (Inter, Poppins) loaded via CDN
-
-### Development Tools
-- **Vite**: Build tool with dev server and HMR
-- **TypeScript**: Type checking across entire codebase
-- **esbuild**: Fast server-side bundling for production
-- **Replit Plugins**: Development tooling for Replit environment (cartographer, dev banner, runtime error overlay)
-
-### Routing & Navigation
-- **Wouter**: Minimalist client-side router (< 2KB alternative to React Router)
-
-### Session Management
-- **connect-pg-simple**: PostgreSQL session store for Express (configured for future use)
-
-### Utilities
-- **date-fns**: Date manipulation and formatting
-- **clsx & tailwind-merge**: Conditional className utilities
-- **class-variance-authority**: Type-safe component variants
-- **nanoid**: Unique ID generation for cache busting
+## Key Features
+- ✅ Inclusive LGBTQ+ owned branding
+- ✅ Winter-themed apparel showcase with product images
+- ✅ Full Calendly booking integration
+- ✅ Professional analytics playbook system
+- ✅ Fundraising product ecosystem
+- ✅ Manufacturing partner integrations (5 platforms)
+- ✅ Mobile responsive design
+- ✅ Retro-modern aesthetic with teal/navy palette
