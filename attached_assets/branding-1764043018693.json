@@ -1,0 +1,84 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Proxima Nova",
+      "role": "body"
+    }
+  ],
+  "colors": {
+    "primary": "#1A73E8",
+    "accent": "#0A2540",
+    "background": "#FAFAFA",
+    "textPrimary": "#0A2540",
+    "link": "#0A2540"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Proxima Nova",
+      "heading": "Proxima Nova"
+    },
+    "fontStacks": {
+      "heading": [
+        "Proxima Nova",
+        "sans-serif"
+      ],
+      "body": [
+        "Proxima Nova",
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Proxima Nova",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "16px",
+      "h2": "16px",
+      "body": "16px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "8px"
+  },
+  "components": {
+    "input": {
+      "borderColor": "#CCCCCC",
+      "borderRadius": "8px"
+    }
+  },
+  "images": {
+    "logo": "https://d3v0px0pttie1i.cloudfront.net/uploads/branding/logo/97f4af9d-50a3-4325-a39a-5c9a61d85095/opengraph_a8fa10a0.png?source=opengraph",
+    "favicon": "https://assets.calendly.com/assets/favicon-bfb0492a754bdf44a0a58b969963f44235653cca09a1c0110309c1e03077e368.ico",
+    "ogImage": "https://d3v0px0pttie1i.cloudfront.net/uploads/branding/logo/97f4af9d-50a3-4325-a39a-5c9a61d85095/opengraph_a8fa10a0.png?source=opengraph"
+  },
+  "__framework_hints": [],
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "All buttons have the same background color (#FFFFFF), which is not vibrant or saturated. Therefore, no primary button can be identified."
+    },
+    "secondary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "Since there is no primary button, there cannot be a secondary button either."
+    },
+    "confidence": 0.5
+  },
+  "personality": {
+    "tone": "professional",
+    "energy": "medium",
+    "targetAudience": "tennis enthusiasts and players of all skill levels"
+  },
+  "designSystem": {
+    "framework": "unknown",
+    "componentLibrary": null
+  },
+  "confidence": {
+    "buttons": 0.5,
+    "colors": 0.9,
+    "overall": 0.7
+  }
+}

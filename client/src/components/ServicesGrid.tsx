@@ -87,7 +87,7 @@ export default function ServicesGrid() {
                 <CardFooter>
                   <Button
                     className="w-full bg-accent hover:bg-accent text-accent-foreground"
-                    onClick={() => console.log(`Book ${service.title}`)}
+                    onClick={() => (window.location.href = "https://calendly.com/tennis919")}
                     data-testid={`button-book-${index}`}
                   >
                     <Calendar className="mr-2 h-4 w-4" />

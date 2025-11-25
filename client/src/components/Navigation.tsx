@@ -24,6 +24,8 @@ export default function Navigation() {
     { href: "/about", label: "About" },
   ];
 
+  const isActive = (path: string) => location === path || (path !== "/" && location.startsWith(path));
+
   return (
     <nav
       className={`sticky top-0 z-50 transition-all duration-300 ${
@@ -35,7 +37,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/" className="flex items-center gap-2 hover-elevate active-elevate-2 rounded-md p-2 -ml-2" data-testid="link-home">
             <img src={logoImg} alt="Tennis 919 Logo" className="h-10 w-10 md:h-12 md:w-12 rounded-full" />
-            <span className="font-heading font-bold text-lg md:text-xl text-foreground">TENNIS 919</span>
+            <span className="font-heading font-bold text-base md:text-lg text-foreground">TENNIS 919</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -43,9 +45,9 @@ export default function Navigation() {
               <Link key={link.href} href={link.href}>
                 <a
                   className={`text-sm font-medium transition-colors hover-elevate active-elevate-2 px-3 py-2 rounded-md ${
-                    location === link.href ? "text-primary" : "text-foreground"
+                    isActive(link.href) ? "text-accent font-semibold" : "text-foreground"
                   }`}
-                  data-testid={`link-${link.label.toLowerCase()}`}
+                  data-testid={`link-nav-${link.label.toLowerCase()}`}
                 >
                   {link.label}
                 </a>
@@ -53,15 +55,30 @@ export default function Navigation() {
             ))}
           </div>
 
-          <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost" size="icon" data-testid="button-cart">
+          <div className="hidden md:flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => (window.location.href = "/shop")}
+              data-testid="button-cart"
+            >
               <ShoppingCart className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" data-testid="button-account">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => (window.location.href = "/playbook")}
+              data-testid="button-account"
+            >
               <User className="h-5 w-5" />
             </Button>
-            <Button variant="default" className="bg-accent hover:bg-accent text-accent-foreground" data-testid="button-book-lesson">
-              Book a Lesson
+            <Button
+              variant="default"
+              className="bg-accent hover:bg-accent text-accent-foreground"
+              onClick={() => (window.location.href = "https://calendly.com/tennis919")}
+              data-testid="button-book-lesson"
+            >
+              Book Now
             </Button>
           </div>
 
@@ -83,7 +100,7 @@ export default function Navigation() {
                 <Link key={link.href} href={link.href}>
                   <a
                     className={`block px-4 py-2 text-sm font-medium rounded-md hover-elevate active-elevate-2 ${
-                      location === link.href ? "bg-muted text-primary" : "text-foreground"
+                      isActive(link.href) ? "bg-muted text-accent font-semibold" : "text-foreground"
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     data-testid={`link-mobile-${link.label.toLowerCase()}`}
@@ -92,15 +109,32 @@ export default function Navigation() {
                   </a>
                 </Link>
               ))}
-              <div className="flex items-center gap-2 px-4 pt-2">
-                <Button variant="ghost" size="icon" className="flex-1" data-testid="button-mobile-cart">
+              <div className="flex items-center gap-2 px-4 pt-3 border-t border-border">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => (window.location.href = "/shop")}
+                  className="flex-1"
+                  data-testid="button-mobile-cart"
+                >
                   <ShoppingCart className="h-5 w-5" />
                 </Button>
-                <Button variant="ghost" size="icon" className="flex-1" data-testid="button-mobile-account">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => (window.location.href = "/playbook")}
+                  className="flex-1"
+                  data-testid="button-mobile-account"
+                >
                   <User className="h-5 w-5" />
                 </Button>
               </div>
-              <Button variant="default" className="mx-4 mt-2 bg-accent hover:bg-accent text-accent-foreground" data-testid="button-mobile-book">
+              <Button
+                variant="default"
+                className="mx-4 mt-3 bg-accent hover:bg-accent text-accent-foreground w-[calc(100%-2rem)]"
+                onClick={() => (window.location.href = "https://calendly.com/tennis919")}
+                data-testid="button-mobile-book"
+              >
                 Book a Lesson
               </Button>
             </div>

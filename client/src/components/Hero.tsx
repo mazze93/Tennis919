@@ -1,32 +1,30 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, ShoppingBag } from "lucide-react";
-import heroImg from "@assets/IMG_2348 Copy_1764041005686.jpeg";
+import heroImg from "@assets/IMG_1748_1764042857651.jpeg";
 
 export default function Hero() {
   return (
-    <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden" data-testid="section-hero">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${heroImg})`,
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/30 to-foreground/50" />
+    <section className="relative w-full h-screen min-h-[500px] flex items-center justify-center overflow-hidden" data-testid="section-hero">
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${heroImg})` }} />
+      
+      {/* Dark wash gradient overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/35 to-black/50" />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1
-          className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight"
-          data-testid="text-hero-title"
-        >
-          Tennis Is For Everyone
-        </h1>
-        <p className="text-lg sm:text-xl md:text-2xl text-white/95 mb-8 max-w-2xl mx-auto font-medium" data-testid="text-hero-subtitle">
-          Personalized, inclusive tennis coaching in Durham, NC. Private lessons, group clinics, and retro-modern tennis apparel.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center min-h-[500px]">
+        <div className="max-w-2xl">
+          <h1 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-4 sm:mb-6 leading-tight drop-shadow-lg" data-testid="text-hero-title">
+            Tennis Is For Everyone
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl text-white/95 mb-6 sm:mb-8 font-medium drop-shadow-md leading-relaxed" data-testid="text-hero-subtitle">
+            Personalized, inclusive tennis coaching in Durham, NC. Group clinics, private lessons, and winter-ready apparel.
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
           <Button
             size="lg"
-            className="bg-accent hover:bg-accent text-accent-foreground backdrop-blur-sm shadow-xl text-base sm:text-lg px-8 py-6"
+            className="bg-accent hover:bg-accent text-accent-foreground w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 shadow-xl"
+            onClick={() => (window.location.href = "https://calendly.com/tennis919")}
             data-testid="button-book-lesson-hero"
           >
             <Calendar className="mr-2 h-5 w-5" />
@@ -35,11 +33,11 @@ export default function Hero() {
           <Button
             size="lg"
             variant="outline"
-            className="border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm shadow-xl text-base sm:text-lg px-8 py-6"
+            className="border-2 border-white text-white hover:bg-white/15 w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 shadow-xl"
             data-testid="button-shop-hero"
           >
             <ShoppingBag className="mr-2 h-5 w-5" />
-            Explore Merchandise
+            Shop Collection
           </Button>
         </div>
       </div>

@@ -62,7 +62,7 @@ export default function WinterCollection() {
         </div>
 
         <div className="text-center">
-          <Button variant="outline" size="lg" onClick={() => console.log("View all products")} data-testid="button-view-all">
+          <Button variant="outline" size="lg" onClick={() => (window.location.href = "/shop")} data-testid="button-view-all">
             View Full Collection
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>

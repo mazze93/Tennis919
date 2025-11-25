@@ -85,7 +85,7 @@ export default function Newsletter() {
               <Button
                 variant="default"
                 className="w-full bg-primary hover:bg-primary text-primary-foreground"
-                onClick={() => console.log("Create account")}
+                onClick={() => (window.location.href = "/playbook")}
                 data-testid="button-create-account"
               >
                 Create Free Account
