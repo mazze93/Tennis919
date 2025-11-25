@@ -34,6 +34,7 @@ export default function Hero() {
             size="lg"
             variant="outline"
             className="border-2 border-white text-white hover:bg-white/15 w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 shadow-xl"
+            onClick={() => (window.location.href = "/shop")}
             data-testid="button-shop-hero"
           >
             <ShoppingBag className="mr-2 h-5 w-5" />

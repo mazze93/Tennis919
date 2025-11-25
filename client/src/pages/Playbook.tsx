@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, TrendingUp, Target, BarChart3, Zap, MessageSquare } from "lucide-react";
+import { Calendar, TrendingUp, Target, BarChart3, Zap, MessageSquare, BarChart2, Trophy, Star, Rocket, Dumbbell, Repeat, Footprints } from "lucide-react";
 
 export default function Playbook() {
   return (
@@ -34,19 +34,26 @@ export default function Playbook() {
             {/* Example Stats Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
               {[
-                { label: "Sessions Completed", value: "24", icon: "📊", color: "bg-primary" },
-                { label: "First Serve %", value: "62%", icon: "🎾", color: "bg-secondary" },
-                { label: "Win Rate (Clinics)", value: "78%", icon: "🏆", color: "bg-accent" },
-                { label: "Current Skill", value: "Intermediate", icon: "⭐", color: "bg-chart-5" },
-              ].map((stat, idx) => (
-                <Card key={idx} className="hover-elevate transition-all border-card-border">
-                  <CardContent className="p-6 text-center">
-                    <div className="text-3xl mb-2">{stat.icon}</div>
-                    <p className="text-sm text-muted-foreground mb-1">{stat.label}</p>
-                    <p className="font-heading font-bold text-2xl text-foreground">{stat.value}</p>
-                  </CardContent>
-                </Card>
-              ))}
+                { label: "Sessions Completed", value: "24", Icon: BarChart2, color: "bg-primary" },
+                { label: "First Serve %", value: "62%", Icon: Target, color: "bg-secondary" },
+                { label: "Win Rate (Clinics)", value: "78%", Icon: Trophy, color: "bg-accent" },
+                { label: "Current Skill", value: "Intermediate", Icon: Star, color: "bg-chart-5" },
+              ].map((stat, idx) => {
+                const StatIcon = stat.Icon;
+                return (
+                  <Card key={idx} className="hover-elevate transition-all border-card-border">
+                    <CardContent className="p-6 text-center">
+                      <div className="flex items-center justify-center mb-2">
+                        <div className={`${stat.color} rounded-full w-12 h-12 flex items-center justify-center`}>
+                          <StatIcon className="h-6 w-6 text-white" />
+                        </div>
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-1">{stat.label}</p>
+                      <p className="font-heading font-bold text-2xl text-foreground">{stat.value}</p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
 
             {/* Skill Progression Matrix */}
@@ -58,21 +65,25 @@ export default function Playbook() {
               <CardContent>
                 <div className="space-y-4">
                   {[
-                    { skill: "Serve", current: 6, target: 9, icon: "🚀" },
-                    { skill: "Forehand", current: 7, target: 9, icon: "💪" },
-                    { skill: "Backhand", current: 5, target: 8, icon: "🔄" },
-                    { skill: "Volley", current: 4, target: 8, icon: "⚡" },
-                    { skill: "Footwork", current: 7, target: 9, icon: "👟" },
-                    { skill: "Match Strategy", current: 6, target: 9, icon: "🎯" },
-                  ].map((item, idx) => (
-                    <div key={idx} className="space-y-2">
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-2">
-                          <span className="text-lg">{item.icon}</span>
-                          <span className="font-semibold text-foreground">{item.skill}</span>
+                    { skill: "Serve", current: 6, target: 9, Icon: Rocket },
+                    { skill: "Forehand", current: 7, target: 9, Icon: Dumbbell },
+                    { skill: "Backhand", current: 5, target: 8, Icon: Repeat },
+                    { skill: "Volley", current: 4, target: 8, Icon: Zap },
+                    { skill: "Footwork", current: 7, target: 9, Icon: Footprints },
+                    { skill: "Match Strategy", current: 6, target: 9, Icon: Target },
+                  ].map((item, idx) => {
+                    const SkillIcon = item.Icon;
+                    return (
+                      <div key={idx} className="space-y-2">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <div className="bg-primary/10 rounded-full w-8 h-8 flex items-center justify-center">
+                              <SkillIcon className="h-4 w-4 text-primary" />
+                            </div>
+                            <span className="font-semibold text-foreground">{item.skill}</span>
+                          </div>
+                          <span className="text-sm text-muted-foreground">{item.current}/10</span>
                         </div>
-                        <span className="text-sm text-muted-foreground">{item.current}/10</span>
-                      </div>
                       <div className="flex h-2 bg-muted rounded-full overflow-hidden">
                         <div
                           className="bg-primary rounded-full transition-all"
@@ -81,7 +92,8 @@ export default function Playbook() {
                       </div>
                       <p className="text-xs text-muted-foreground">Target: {item.target}/10</p>
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>

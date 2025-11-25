@@ -3,9 +3,9 @@ import logoImg from "@assets/logo.jpg";
 
 export default function Footer() {
   const quickLinks = [
-    { label: "Private Lessons", href: "/lessons#private" },
+    { label: "Private Lessons", href: "/lessons#privates" },
     { label: "Duos Coaching", href: "/lessons#duos" },
-    { label: "Group Clinics", href: "/lessons#clinics" },
+    { label: "Group Clinics", href: "/lessons#beginner" },
     { label: "Shop Apparel", href: "/shop" },
     { label: "About Us", href: "/about" },
   ];

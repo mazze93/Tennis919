@@ -100,6 +100,7 @@ export default function Lessons() {
                 return (
                   <Card
                     key={lesson.id}
+                    id={lesson.id}
                     className="flex flex-col hover-elevate active-elevate-2 transition-all duration-300 border-card-border overflow-hidden relative"
                     data-testid={`card-lesson-${lesson.id}`}
                   >

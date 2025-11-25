@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, Zap, ExternalLink, Heart } from "lucide-react";
+import { ShoppingCart, Zap, ExternalLink, Heart, Snowflake, Sparkles, Target, ShoppingBag, Palette, Flame, Shirt, Globe } from "lucide-react";
 import windbreaker from "@assets/generated_images/retro_forest_green_windbreaker.png";
 import polo from "@assets/generated_images/terracotta_tennis_polo_shirt.png";
 import sweatpants from "@assets/generated_images/coral_tennis_sweatpants.png";
@@ -85,35 +85,35 @@ export default function Shop() {
       description: "Print-on-demand platform integrated with Amazon. No setup costs, automatic fulfillment.",
       url: "https://merch.amazon.com",
       features: ["Zero upfront cost", "Automatic fulfillment", "Access to Amazon market", "T-shirts, hoodies, accessories"],
-      icon: "🛍️",
+      Icon: ShoppingBag,
     },
     {
       name: "Printful",
       description: "Premium print-on-demand with real-time inventory. White-label products with your branding.",
       url: "https://www.printful.com",
       features: ["High quality prints", "Mockup generator", "Wide product range", "Integrates with Shopify"],
-      icon: "🎨",
+      Icon: Palette,
     },
     {
       name: "Bonfire",
       description: "Campaign-based fundraising platform. Perfect for club fundraisers and group sales.",
       url: "https://www.bonfire.com",
       features: ["Easy fundraising campaigns", "No inventory needed", "Built-in social sharing", "Direct deposit payouts"],
-      icon: "🔥",
+      Icon: Flame,
     },
     {
       name: "CustomInk",
       description: "Bulk custom apparel orders with designer tools. Great for team uniforms and merchandise.",
       url: "https://www.customink.com",
       features: ["Team uniforms", "Bulk pricing", "Professional design help", "Fast shipping"],
-      icon: "🧵",
+      Icon: Shirt,
     },
     {
       name: "Teespring (Spring)",
       description: "Creator platform with global fulfillment. Launch collections, connect with audiences.",
       url: "https://www.spring.com",
       features: ["Creator-friendly", "Global shipping", "Analytics dashboard", "Built-in marketing"],
-      icon: "🌍",
+      Icon: Globe,
     },
   ];
 
@@ -161,18 +161,23 @@ export default function Shop() {
               <div className="bg-white/10 backdrop-blur-md rounded-lg p-8 border border-white/20">
                 <div className="space-y-4">
                   {[
-                    { icon: "🧊", title: "Cold Weather Tech", description: "Moisture-wicking & insulated" },
-                    { icon: "✨", title: "Modern Design", description: "Retro vibes with contemporary style" },
-                    { icon: "🎾", title: "Performance Tested", description: "Designed for serious players" },
-                  ].map((feature, idx) => (
-                    <div key={idx} className="flex gap-3 items-start">
-                      <span className="text-2xl flex-shrink-0">{feature.icon}</span>
-                      <div>
-                        <h3 className="font-semibold text-white">{feature.title}</h3>
-                        <p className="text-blue-100 text-sm">{feature.description}</p>
+                    { Icon: Snowflake, title: "Cold Weather Tech", description: "Moisture-wicking & insulated" },
+                    { Icon: Sparkles, title: "Modern Design", description: "Retro vibes with contemporary style" },
+                    { Icon: Target, title: "Performance Tested", description: "Designed for serious players" },
+                  ].map((feature, idx) => {
+                    const FeatureIcon = feature.Icon;
+                    return (
+                      <div key={idx} className="flex gap-3 items-start">
+                        <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
+                          <FeatureIcon className="h-6 w-6 text-white" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-white">{feature.title}</h3>
+                          <p className="text-blue-100 text-sm">{feature.description}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -297,17 +302,21 @@ export default function Shop() {
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {manufacturers.map((mfg, idx) => (
-                <Card key={idx} className="hover-elevate border-card-border flex flex-col" data-testid={`card-manufacturer-${idx}`}>
-                  <CardHeader>
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="text-4xl">{mfg.icon}</div>
-                      <Badge className="bg-blue-100 text-blue-900" variant="secondary">
-                        Partner
-                      </Badge>
-                    </div>
-                    <CardTitle className="font-heading text-lg mt-3">{mfg.name}</CardTitle>
-                  </CardHeader>
+              {manufacturers.map((mfg, idx) => {
+                const MfgIcon = mfg.Icon;
+                return (
+                  <Card key={idx} className="hover-elevate border-card-border flex flex-col" data-testid={`card-manufacturer-${idx}`}>
+                    <CardHeader>
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="bg-primary/10 rounded-lg w-12 h-12 flex items-center justify-center">
+                          <MfgIcon className="h-6 w-6 text-primary" />
+                        </div>
+                        <Badge className="bg-blue-100 text-blue-900" variant="secondary">
+                          Partner
+                        </Badge>
+                      </div>
+                      <CardTitle className="font-heading text-lg mt-3">{mfg.name}</CardTitle>
+                    </CardHeader>
                   <CardContent className="flex-1">
                     <p className="text-muted-foreground mb-4">{mfg.description}</p>
                     <div className="space-y-2 mb-6">
@@ -330,7 +339,8 @@ export default function Shop() {
                     </Button>
                   </CardFooter>
                 </Card>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
