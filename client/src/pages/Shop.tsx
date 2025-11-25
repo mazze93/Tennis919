@@ -4,10 +4,12 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Zap, ExternalLink, Heart, Snowflake, Sparkles, Target, ShoppingBag, Palette, Flame, Shirt, Globe } from "lucide-react";
-import windbreaker from "@assets/generated_images/retro_forest_green_windbreaker.png";
-import polo from "@assets/generated_images/terracotta_tennis_polo_shirt.png";
-import sweatpants from "@assets/generated_images/coral_tennis_sweatpants.png";
-import beanie from "@assets/generated_images/mint_tennis_beanie_hat.png";
+import windbreaker from "@assets/generated_images/teal_water-resistant_performance_windbreaker.png";
+import polo from "@assets/generated_images/navy_polo_with_cream_trim.png";
+import sweatpants from "@assets/generated_images/cream_sweatpants_with_navy_stripe.png";
+import beanie from "@assets/generated_images/teal_branded_winter_beanie.png";
+import tote from "@assets/generated_images/canvas_tote_with_tennis_919_logo.png";
+import headband from "@assets/generated_images/teal_performance_headband.png";
 
 export default function Shop() {
   const premiumProducts = [
@@ -48,6 +50,7 @@ export default function Shop() {
       id: 101,
       name: "Tennis 919 Branded Beanie",
       price: 18,
+      image: beanie,
       category: "Accessories",
       color: "Teal",
       description: "Cozy winter beanie with embroidered Tennis 919 logo. Perfect for fundraising!",
@@ -59,6 +62,7 @@ export default function Shop() {
       id: 102,
       name: "Canvas Tote with Logo",
       price: 22,
+      image: tote,
       category: "Accessories",
       color: "Natural Canvas",
       description: "Durable canvas tote with screen-printed Tennis 919 branding.",
@@ -70,6 +74,7 @@ export default function Shop() {
       id: 103,
       name: "Performance Headband",
       price: 12,
+      image: headband,
       category: "Accessories",
       color: "Teal",
       description: "Lightweight moisture-wicking headband. Great for bulk fundraising orders.",
