@@ -1,0 +1,103 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Bitter",
+      "role": "body"
+    },
+    {
+      "family": "Shrikhand",
+      "role": "display"
+    }
+  ],
+  "colors": {
+    "primary": "#F6C20C",
+    "accent": "#7B6106",
+    "background": "#FFFFFF",
+    "textPrimary": "#000000",
+    "link": "#7B6106"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Bitter",
+      "heading": "Shrikhand"
+    },
+    "fontStacks": {
+      "heading": [
+        "Shrikhand"
+      ],
+      "body": [
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Bitter"
+      ]
+    },
+    "fontSizes": {
+      "h1": "72.8px",
+      "h2": "35.2px",
+      "body": "16px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "0px"
+  },
+  "components": {
+    "input": {
+      "borderColor": "#CCCCCC",
+      "borderRadius": "0px"
+    },
+    "buttonPrimary": {
+      "background": "#F6C20C",
+      "textColor": "#F6C20C",
+      "borderRadius": "0px",
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "transparent",
+      "textColor": "#000000",
+      "borderColor": "#000000",
+      "borderRadius": "300px",
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "File saved at: attached_assets/logo.jpg",
+    "favicon": "File saved at: attached_assets/favicon.png",
+    "ogImage": "http://static1.squarespace.com/static/6616fdbfa3e36b4092d80972/t/68f3df3837dfbf0434a04c00/1760812856699/IMG_2363.jpeg?format=1500w"
+  },
+  "__framework_hints": [],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 2,
+    "reasoning": "Logo #2 visually represents 'Tennis 919' with the brand name clearly displayed and is located in the header, making it the best choice for the brand logo.",
+    "confidence": 0.9
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 1,
+      "text": "Book Private",
+      "reasoning": "Button #1 has a vibrant background color (#F6C20C), which is the brand color, and action-oriented text 'Book Private', making it the primary CTA."
+    },
+    "secondary": {
+      "index": 0,
+      "text": "Sign Up",
+      "reasoning": "Button #0 has a transparent background, which is distinctly different from the primary button's vibrant color, making it a suitable secondary option."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "playful",
+    "energy": "high",
+    "targetAudience": "tennis enthusiasts and players of all ages"
+  },
+  "designSystem": {
+    "framework": "custom",
+    "componentLibrary": null
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  }
+}
