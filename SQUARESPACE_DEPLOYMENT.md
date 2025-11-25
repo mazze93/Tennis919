@@ -1,5 +1,16 @@
 # Tennis 919 Squarespace Deployment Guide
 
+## Quick Start
+
+**30-Second Summary**: Tennis 919 has 4 static pages (Home, Lessons, Shop, About) that export to Squarespace, plus a dynamic Playbook with user authentication that stays on Replit. This hybrid approach lets you maintain a professional web presence on Squarespace while preserving user tracking on Replit.
+
+**Recommended Setup**:
+1. Export static pages to tennis919.com (Squarespace)
+2. Point playbook.tennis919.com subdomain to Replit app
+3. Users navigate Squarespace normally, sign in on Replit for personalized tracking
+
+---
+
 ## Overview
 This Tennis 919 website is built with React and can be deployed to Squarespace by exporting the built static files. This guide walks you through the process.
 

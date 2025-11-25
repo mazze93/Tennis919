@@ -107,12 +107,15 @@ export default function Playbook() {
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               Create your account to start tracking sessions, monitoring skill development, and unlocking personalized insights from your Tennis 919 coach.
             </p>
-            <a 
-              href="/api/login"
-              className="inline-block bg-secondary text-secondary-foreground px-8 py-3 font-semibold hover:bg-secondary/90 transition-colors"
+            <Button 
+              asChild
+              size="lg"
+              className="bg-secondary hover:bg-secondary/90 text-secondary-foreground"
             >
-              Log In or Sign Up
-            </a>
+              <a href="/api/login" data-testid="button-playbook-login">
+                Log In or Sign Up
+              </a>
+            </Button>
           </div>
         </section>
 
