@@ -21,7 +21,7 @@ export default function ServicesGrid() {
       price: "$40-$50",
       duration: "per person/hour",
       features: ["Partner training", "Doubles strategies", "Team building", "Shared progress"],
-      calendlyLink: "https://calendly.com/tennis919/duos-lesson",
+      calendlyLink: "https://calendly.com/tennis919/duos",
       popular: true,
     },
     {
