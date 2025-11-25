@@ -35,23 +35,35 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href="/" className="flex items-center gap-2 hover-elevate active-elevate-2 rounded-md p-2 -ml-2" data-testid="link-home">
+          <a 
+            href="/" 
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = "/";
+            }}
+            className="flex items-center gap-2 hover-elevate active-elevate-2 rounded-md p-2 -ml-2" 
+            data-testid="link-home"
+          >
             <img src={logoImg} alt="Tennis 919 Logo" className="h-10 w-10 md:h-12 md:w-12 rounded-full" />
             <span className="font-heading font-bold text-base md:text-lg text-foreground">TENNIS 919</span>
-          </Link>
+          </a>
 
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                <a
-                  className={`text-sm font-medium transition-colors hover-elevate active-elevate-2 px-3 py-2 rounded-md ${
-                    isActive(link.href) ? "text-accent font-semibold" : "text-foreground"
-                  }`}
-                  data-testid={`link-nav-${link.label.toLowerCase()}`}
-                >
-                  {link.label}
-                </a>
-              </Link>
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = link.href;
+                }}
+                className={`text-sm font-medium transition-colors hover-elevate active-elevate-2 px-3 py-2 rounded-md ${
+                  isActive(link.href) ? "text-accent font-semibold" : "text-foreground"
+                }`}
+                data-testid={`link-nav-${link.label.toLowerCase()}`}
+              >
+                {link.label}
+              </a>
             ))}
           </div>
 
@@ -97,17 +109,21 @@ export default function Navigation() {
           <div className="md:hidden pb-4 border-t border-border mt-2" data-testid="menu-mobile">
             <div className="flex flex-col gap-2 pt-4">
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
-                  <a
-                    className={`block px-4 py-2 text-sm font-medium rounded-md hover-elevate active-elevate-2 ${
-                      isActive(link.href) ? "bg-muted text-accent font-semibold" : "text-foreground"
-                    }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    data-testid={`link-mobile-${link.label.toLowerCase()}`}
-                  >
-                    {link.label}
-                  </a>
-                </Link>
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    window.location.href = link.href;
+                  }}
+                  className={`block px-4 py-2 text-sm font-medium rounded-md hover-elevate active-elevate-2 ${
+                    isActive(link.href) ? "bg-muted text-accent font-semibold" : "text-foreground"
+                  }`}
+                  data-testid={`link-mobile-${link.label.toLowerCase()}`}
+                >
+                  {link.label}
+                </a>
               ))}
               <div className="flex items-center gap-2 px-4 pt-3 border-t border-border">
                 <Button

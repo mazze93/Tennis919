@@ -1,4 +1,3 @@
-import { Link } from "wouter";
 import { MapPin, Clock, Mail, Phone, Heart } from "lucide-react";
 import logoImg from "@assets/logo.jpg";
 
@@ -34,11 +33,17 @@ export default function Footer() {
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <Link href={link.href}>
-                    <a className="text-background/80 hover:text-background text-sm transition-colors hover-elevate px-1 py-0.5 rounded-sm inline-block" data-testid={`link-footer-${index}`}>
-                      {link.label}
-                    </a>
-                  </Link>
+                  <a 
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = link.href;
+                    }}
+                    className="text-background/80 hover:text-background text-sm transition-colors hover-elevate px-1 py-0.5 rounded-sm inline-block" 
+                    data-testid={`link-footer-${index}`}
+                  >
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>
